@@ -1,0 +1,44 @@
+ string fun(string s,int k)
+    {
+        if(k==0)return s;
+        if(k==1)return "";
+        string temp="";
+        for(int i=0;i<s.size();i++)
+        {
+            int j=i+1;
+            if(s[i]!=s[j])
+            temp+=s[i];
+            
+            else
+            {
+              int c=1;
+              string t="";
+              t+=s[i];
+              while(s[i]==s[j])
+              {
+                  t+=s[j];
+                  j++;
+                  c=c+1;
+                  if(c>=k)
+                  break;
+                  
+              }
+              i=j-1;
+              if(c<k)
+              temp+=t;
+            }
+        }
+        
+      if(temp.size()==s.size())//cheak if equal to original string 
+       return temp;
+       else
+      return  fun(temp,k);
+      
+    }
+    string Reduced_String(int k,string s){
+       
+       return fun(s,k);
+    }
+
+
+https://practice.geeksforgeeks.org/problems/8c8f95810b05b4cab665f2997d36991bd58308a2/1?page=2&category[]=Stack&sortBy=submissions
